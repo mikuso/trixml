@@ -1,0 +1,20 @@
+{
+  "name": "trixml",
+  "description": "A trivally easy-to-use XML manipulator",
+  "version": "1.5.1",
+  "main": "./index",
+  "dependencies": {
+    "sax": "^1.1.1",
+    "xmlbuilder": "^8.2.2"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikuso/trixml.git"
+  },
+  "readmeFilename": "README.md"
+}
