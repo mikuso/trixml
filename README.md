@@ -9,7 +9,7 @@ The goals of this project:
 * To provide a novel and terse API by taking advantage of the latest ES6 metaprogramming features.
 * Useful for quick and dirty jobs which don't need fine grained control over every intricacy of XML.
 * Prioritising ease-of-use over speed.
-* To make you re-think your approach XML parsing.
+* To make you re-think your approach to XML parsing.
 
 Requires a recent version of Node which has **Proxy** support.
 
