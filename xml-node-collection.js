@@ -143,6 +143,10 @@ class XMLNodeCollection extends Function {
         }
         throw Error("Cannot set name of an empty collection");
     }
+
+    toArray() {
+        return this._members;
+    }
 }
 
 XMLNodeCollection.prototype.inspect = null;
