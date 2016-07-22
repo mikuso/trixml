@@ -1,7 +1,7 @@
 {
   "name": "trixml",
   "description": "A trivally easy-to-use XML manipulator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./index",
   "dependencies": {
     "sax": "^1.1.1",
