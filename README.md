@@ -16,6 +16,7 @@ Requires a recent version of Node which has **Proxy** support.
 ## Examples
 ### Parsing an XML document
 ```js
+var trixml = require('trixml');
 var xml = trixml.parseSync(`
     <?xml version="1.0"?>
     <Root an="attribute" another="one">
@@ -53,24 +54,22 @@ xml.Footer.flub("fluub");
 xml.Trailer;
 
 console.log(xml.toXML());
-```
-outputs:
-```xml
-<?xml version="1.0"?>
-<root>
-    <Header>Hello ...</Header>
-    <Body>
-        <Message length="6" planet="Earth">World!</Message>
-    </Body>
-    <Footer>
-        <wibble a="b" c="d" />
-        <wobble>Easy!</wobble>
-        <wubble e="f">Simple</wubble>
-        <wubble />
-        <flub>fluub</flub>
-    </Footer>
-    <Trailer />
-</root>
+
+// <?xml version="1.0"?>
+// <root>
+//     <Header>Hello ...</Header>
+//     <Body>
+//         <Message length="6" planet="Earth">World!</Message>
+//     </Body>
+//     <Footer>
+//         <wibble a="b" c="d" />
+//         <wobble>Easy!</wobble>
+//         <wubble e="f">Simple</wubble>
+//         <wubble />
+//         <flub>fluub</flub>
+//     </Footer>
+//     <Trailer />
+// </root>
 ```
 
 
