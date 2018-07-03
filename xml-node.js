@@ -92,7 +92,7 @@ class XMLNode extends Function {
             return (typeof attr === "string") ? attr : "";
         } else {
             // set single attribute string
-            console.log('setting attr(%s, %s)', attrName, newValue);
+            // console.log('setting attr(%s, %s)', attrName, newValue);
             this._attributes[String(attrName)] = String(newValue);
             return this;
         }
