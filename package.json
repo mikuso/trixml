@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "main": "./index",
   "dependencies": {
-    "sax": "^1.1.1",
+    "sax": "^1.2.4",
     "xmlbuilder": "^8.2.2"
   },
   "devDependencies": {
