@@ -1,5 +1,6 @@
+const {newXMLNode, XMLNode} = require('./xml-node');
 
-var XMLNodeCollectionProxyHandler = {
+const XMLNodeCollectionProxyHandler = {
     get(xmlNodeCollection, propertyName) {
         // override the .name property so that it doesn't return the function name
         // this unfortunately cannot be implemented as a standard getter
@@ -13,6 +14,11 @@ var XMLNodeCollectionProxyHandler = {
         // .length should refer to the number of members in the collection
         if (propertyName === "length") {
             return xmlNodeCollection._members.length;
+        }
+
+        // ._parent should refer to the first member's parent node
+        if (propertyName === "_parent") {
+            return xmlNodeCollection._members[0]._parent;
         }
 
         // if xmlNodeCollection has this property, or a symbol property is requested,
@@ -34,7 +40,7 @@ var XMLNodeCollectionProxyHandler = {
         if (["forEach", "map", "filter", "find", "some", "every"].indexOf(propertyName) !== -1) {
             // console.log('%s is an array method', propertyName);
             return function(iteratee) {
-                var result = Array.prototype[propertyName].call(xmlNodeCollection._members, iteratee);
+                let result = Array.prototype[propertyName].call(xmlNodeCollection._members, iteratee);
 
                 if (propertyName === "filter") {
                     return newXMLNodeCollection(result);
@@ -144,6 +150,27 @@ class XMLNodeCollection extends Function {
         throw Error("Cannot set name of an empty collection");
     }
 
+    empty() {
+        while (this._members.length) {
+            let member = this._members.pop();
+            member.empty();
+        }
+    }
+
+    remove() {
+        while (this._members.length) {
+            let member = this._members.pop();
+            member.remove();
+        }
+    }
+
+    cloneSync() {
+        if (this._members.length > 0) {
+            return this._members[0].cloneSync();
+        }
+        throw Error("Cannot clone an empty collection");
+    }
+
     toArray() {
         return this._members;
     }
@@ -152,4 +179,4 @@ class XMLNodeCollection extends Function {
 XMLNodeCollection.prototype.inspect = null;
 XMLNodeCollection.prototype.toJSON = null;
 
-module.exports = newXMLNodeCollection;
+module.exports = {newXMLNodeCollection, XMLNodeCollection};

@@ -114,7 +114,7 @@ getRSSXML((xmlString) => {
 It's possible for nodes in your XML document to have names which conflict with the names of members of the ```XMLNode``` or ```XMLNodeCollection``` objects.  When this happens, you cannot use the shorthand method for accessing child nodes.
 
 The following XML nodes are affected:
-    ```<inspect>```, ```<toJSON>```, ```<toString>```, ```<value>```, ```<children>```, ```<comments>```, ```<attr>```, ```<addChild>```, ```<get>```
+    `<inspect>`, `<toJSON>`, `<toString>`, `<value>`, `<children>`, `<comments>`, `<attr>`, `<addChild>`, `<get>`, `<cloneSync>`, `<remove>`, `<empty>`
 
 In these cases, you must use the longhand method like this:
 ```js
@@ -137,7 +137,6 @@ root.inspect.addChild.value; // TypeError: Cannot read property 'addChild' of nu
 
 * Add support for streams
 * Async parsing, returning Promises
-* Ability to remove nodes
 * Ability to remove attributes
 * Add support for more Array methods on XMLNodeCollection
 * More tests
