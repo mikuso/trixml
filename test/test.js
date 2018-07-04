@@ -1,3 +1,4 @@
+var util = require('util');
 var should = require('chai').should();
 var trixml = require('..');
 
@@ -7,7 +8,9 @@ describe('XMLNodeCollection', function() {
         var xml = trixml.parseSync("<A></A>");
         xml.should.be.instanceof(Object);
         xml.should.be.instanceof(Function);
-        xml.should.be.instanceof(Proxy);
+        if (util.types && util.types.isProxy) {
+            util.types.isProxy(xml).should.equal(true);
+        }
     });
     it('contains exactly one member when created from an XML string', function(){
         var xml1 = trixml.parseSync('<?xml version="1.0" encoding="UTF-8"?><A></A><B></B><C></C>');
